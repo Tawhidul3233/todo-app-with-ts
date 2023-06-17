@@ -23,19 +23,24 @@ type PropsType = {
       catchPhrase: string,
       bs: string
     }
-  }
+  },
+
 }
 
 const User = (props: PropsType) => {
   // console.log(props.user)
-  const {id, name, username, email, phone, website } = props.user;
+  const { id, name, username, email, phone, website } = props.user;
+
+  const classWillbe = id % 2 !== 0 ? 'todo' : 'todo1';
 
   return (
-    <div>
+    <div className={classWillbe}>
+      <p> {id} </p>
       <p> {name} </p>
       <p> {email} </p>
       <p> {website} </p>
       <p> {phone} </p>
+      <button>Delete</button>
     </div>
   )
 }

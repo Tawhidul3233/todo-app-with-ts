@@ -30,11 +30,11 @@ type PropsType = {
 const Users = (props: PropsType) => {
   // console.log(props.users)
   return (
-    <div>
+    <div >
       <h2>Users list</h2>
-      <div>
+      <div className='todos'>
         {
-          props.users.map( user => <User user={user} key={user.id} /> )
+          props.users.map( user => <User  user={user} key={user.id} /> )
         }
       </div>
 

@@ -67,3 +67,22 @@ button:focus-visible {
     background-color: #f9f9f9;
   }
 }
+
+
+.todos {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  padding: 15px;
+  gap: 10px;
+}
+
+.todo{
+  background-color: dodgerblue;
+  padding: 20px;
+  border-radius: 5px;
+}
+.todo1{
+  background-color: red;
+  padding: 20px;
+  border-radius: 5px;
+}
