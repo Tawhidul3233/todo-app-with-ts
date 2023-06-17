@@ -1,31 +1,10 @@
 import React from 'react'
 import User from './User'
+import { propsType } from '../Type/Type'
 
 type PropsType = {
-  users: {
-    id: number,
-    name: string,
-    username: string,
-    email: string,
-    address: {
-      street: string,
-      suite: string,
-      city: string,
-      zipcode: string,
-      geo: {
-        lat: string,
-        lng: string
-      }
-    },
-    phone: string,
-    website: string,
-    company: {
-      name: string,
-      catchPhrase: string,
-      bs: string
-    }
-  }[]
-
+  users: propsType[],
+  deleteTodo: Function;
 }
 const Users = (props: PropsType) => {
   // console.log(props.users)
@@ -34,7 +13,7 @@ const Users = (props: PropsType) => {
       <h2>Users list</h2>
       <div className='todos'>
         {
-          props.users.map( user => <User  user={user} key={user.id} /> )
+          props.users.map( user => <User  user={user} key={user.id} deleteTodo={props.deleteTodo} /> )
         }
       </div>
 

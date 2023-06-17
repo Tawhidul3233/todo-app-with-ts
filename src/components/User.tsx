@@ -1,29 +1,9 @@
 import React from 'react'
+import { propsType } from '../Type/Type';
 
 type PropsType = {
-  user: {
-    id: number,
-    name: string,
-    username: string,
-    email: string,
-    address: {
-      street: string,
-      suite: string,
-      city: string,
-      zipcode: string,
-      geo: {
-        lat: string,
-        lng: string
-      }
-    },
-    phone: string,
-    website: string,
-    company: {
-      name: string,
-      catchPhrase: string,
-      bs: string
-    }
-  },
+  user: propsType;
+  deleteTodo: Function
 
 }
 
@@ -32,6 +12,9 @@ const User = (props: PropsType) => {
   const { id, name, username, email, phone, website } = props.user;
 
   const classWillbe = id % 2 !== 0 ? 'todo' : 'todo1';
+  const handelDelete = (id: string) => {
+    props.deleteTodo(id)
+  }
 
   return (
     <div className={classWillbe}>
@@ -40,7 +23,7 @@ const User = (props: PropsType) => {
       <p> {email} </p>
       <p> {website} </p>
       <p> {phone} </p>
-      <button>Delete</button>
+      <button onClick={() => handelDelete(id)} >Delete</button>
     </div>
   )
 }

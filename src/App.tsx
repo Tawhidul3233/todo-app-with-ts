@@ -4,7 +4,7 @@ import viteLogo from '/vite.svg'
 import './App.css'
 import Users from './components/Users'
 
-const users = [
+const usersList = [
   {
     "id": 1,
     "name": "Leanne Graham",
@@ -239,10 +239,17 @@ const users = [
 
 function App() {
 
+  const [users, setUsers] = useState(usersList)
+
+  const deleteTodo = (id: number) => {
+    const updatedUsers = users.filter(user => user.id !== id);
+    setUsers(updatedUsers)
+  }
+
   return (
     <>
       <div>
-        <Users users={users} />
+        <Users users={users} deleteTodo={deleteTodo} />
       </div>
     </>
   )
