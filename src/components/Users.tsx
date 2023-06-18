@@ -13,7 +13,7 @@ const Users = (props: PropsType) => {
       <h2>Users list</h2>
       <div className='todos'>
         {
-          props.users.map( user => <User  user={user} key={user.id} deleteTodo={props.deleteTodo} /> )
+          props?.users?.map( user => <User  user={user} key={user.id} deleteTodo={props.deleteTodo} /> )
         }
       </div>
 

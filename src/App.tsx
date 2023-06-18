@@ -3,6 +3,8 @@ import reactLogo from './assets/react.svg'
 import viteLogo from '/vite.svg'
 import './App.css'
 import Users from './components/Users'
+import AddUser from './components/AddUser'
+import { propsType } from './Type/Type'
 
 const usersList = [
   {
@@ -237,6 +239,10 @@ const usersList = [
   }
 ]
 
+type PropsTy = {
+  user: propsType
+}
+
 function App() {
 
   const [users, setUsers] = useState(usersList)
@@ -246,9 +252,17 @@ function App() {
     setUsers(updatedUsers)
   }
 
+
+  const userAdd = (props: PropsTy) => {
+
+    setUsers((prevUsers) => [...prevUsers, props.user])
+    // setUsers( [...users, props.user])
+  }
+
   return (
     <>
       <div>
+        <AddUser userAdd={userAdd} />
         <Users users={users} deleteTodo={deleteTodo} />
       </div>
     </>
